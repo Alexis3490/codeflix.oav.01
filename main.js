@@ -24,17 +24,25 @@ else {
 
     if (files[1] === "env") {
         config_env = env(content);
-        fs.writeFile('./env'+date.getFullYear()+date.getMonth()+date.getDay()+date.getHours()+date.getMinutes()+date.getSeconds()+'.json', config_env, (err) => {
+        let env_file = 'env'+date.getFullYear()+date.getMonth()+date.getDay()+date.getHours()+date.getMinutes()+date.getSeconds()+'.json'
+        fs.writeFile('./'+env_file, config_env, (err) => {
             if (err) {
                 console.log('error create file .env');
+            }
+            else {
+                console.log('File '+'`'+env_file+'`' +' has been successfully created')
+
             }
         });
     }
     else if (files[1] === "ini") {
         config_ini = ini(content);
-        fs.writeFile('./php'+date.getFullYear()+date.getMonth()+date.getDay()+date.getHours()+date.getMinutes()+date.getSeconds()+'.json', config_ini, (err) => {
+        let php_file = 'php'+date.getFullYear()+date.getMonth()+date.getDay()+date.getHours()+date.getMinutes()+date.getSeconds()+'.json'
+        fs.writeFile('./'+php_file, config_ini, (err) => {
             if (err) {
                 console.log('error create file .ini');
+            }            else {
+                console.log('File '+'`'+php_file+'`' +' has been successfully created')
             }
         });
     } else {
